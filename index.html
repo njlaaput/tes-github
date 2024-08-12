@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detik Travel - Explore Thailand</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('img/Logo.png') }}">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Montserrat", sans-serif;
+            background-color: #f0f8ff;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 20px;
+            left: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 15px 0;
+            box-shadow: none;
+            backdrop-filter: blur(10px);
+            border-radius: 100px;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #080808;
+            padding: 10px 15px;
+            border-radius: 100px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-register {
+            background-color: #FFC73C;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-register:hover {
+            background-color: #FF9A3C;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('img/Variant4.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: left;
+            max-width: 80%;
+            margin-left: 10%;
+        }
+
+        .hero h1 img {
+            width: 400px;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .btn-program {
+            background-color: #FFC73C;
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 18px;
+            box-shadow: #FFC73C;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .btn-program:hover {
+            background-color: #FF9A3C;
+            color: #ffffff;
+        }
+
+        .small-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .small-images img {
+            width: 100px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .small-images img:hover {
+            transform: scale(1.1);
+        }
+
+        /* About Program Section */
+        .program-section {
+    display: flex;
+    align-items: center;
+    background-color: #00a8cc; /* Light blue background color */
+    padding: 50px;
+    background-image: url('img/Desktop - 1.png');
+}
+
+.program-image {
+    flex: 1;
+    text-align: center;
+}
+
+.program-image img {
+    width: 80%; /* Adjust image size */
+    border-radius: 50%; /* Circular image */
+}
+
+.program-content {
+    flex: 1;
+    color: white;
+    padding-left: 50px;
+}
+
+.program-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.program-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn-daftar {
+    background-color: #FFC73C;
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: #FFC73C;
+}
+
+.btn-daftar:hover {
+    background-color: #FF9A3C;
+}
+
+.program-steps h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.program-steps ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.program-steps li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.step-number {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 20px;
+    background-color: white;
+    color: #00a8cc;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+}
+
+.step-details h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.step-details p {
+    margin: 0;
+}
+
+        /* Update Section */
+        /* Logo Update Styling */
+.logo-update {
+    position: relative; /* Mengatur posisi relatif untuk penggunaan z-index */
+    z-index: 10; /* Menempatkan logo di atas background */
+    text-align: center; /* Menyelaraskan logo dan teks "Update" di tengah */
+    padding: 10px;
+    background-color: white; /* Menambahkan latar belakang putih untuk memastikan logo terlihat jelas */
+    border-bottom: 1px solid #ddd; /* Menambahkan garis bawah untuk pemisah visual */
+}
+
+.update-logo {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.logo-update h2 {
+    color: #F79820;
+    font-size: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.update-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: flex-start;
+    background-image: url('img/Aggregator.png');
+    background-size: cover; /* Menyesuaikan ukuran background dengan elemen */
+    background-position: center; /* Menyelaraskan posisi background */
+    height: calc(100vh - 60px); /* Menyesuaikan tinggi dengan ruang logo */
+    position: relative; /* Mengatur posisi relatif untuk konten di dalamnya */
+    height: 100vh;
+}
+
+
+.left-side,
+.right-side {
+    flex: 1;
+    margin: 0 10px;
+    margin-right: 20px; /* Memberikan ruang antara main card dan side card */
+}
+
+.card {
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding: 10px;
+    flex: 0 0 35%; /* Sesuaikan sesuai kebutuhan */
+}
+
+h2 {
+    color: #F79820;
+    font-size: 2rem;
+}
+
+.news-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.news-info {
+    margin-top: 15px;
+}
+
+.news-info h2,
+.side-news-info h3 {
+    font-size: 1.5rem;
+    color: #343a40;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+
+.news-info p,
+.side-news-info p {
+    color: #868e96;
+    font-size: 0.9rem;
+}
+
+.side-news-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.side-news-item img {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.side-news-info h3 {
+    font-size: 1rem;
+    color: #343a40;
+    transition: color 0.2s;
+}
+
+.side-news-item:hover h3 {
+    color: #ff8800;
+}
+
+.btn-more-news {
+    background-color: #00D1FF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: flex-start;
+    transition: background-color 0.2s;
+}
+
+.btn-more-news:hover {
+    background-color: #FFC73C;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #f1f1f1;
+    font-size: 35px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.news-image:hover {
+    transform: scale(1.1);
+}
+
+
+        footer {
+            background-color: #00D1FF;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            height: 450px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+            margin-bottom: 10px;
+            padding: 20px;
+        }
+
+        .footer-line {
+            border: none;
+            border-top: 1px solid #ffffff;
+            margin: 20px 0 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding-bottom: 20px;
+        }
+
+        .social-icons img {
+            width: 30px;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                display: none; /* Initially hide for mobile */
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+                padding: 20px;
+                border-radius: 10px;
+            }
+
+            .navbar-toggle {
+                display: block;
+                cursor: pointer;
+            }
+
+            .navbar-toggle .bar {
+                width: 25px;
+                height: 3px;
+                background-color: #000;
+                margin: 5px 0;
+            }
+
+            nav ul.active {
+                display: flex; /* Show menu when active */
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .about-content {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+
+            .small-images img {
+                width: 80px;
+            }
+
+            .program-section {
+                flex-direction: column;
+            }
+
+            .program-content {
+                padding-left: 0;
+                margin-top: 20px;
+            }
+
+            .update-section {
+                flex-direction: column;
+            }
+
+            .left-side,
+            .right-side {
+                margin: 0;
+                flex: none;
+            }
+
+            .news-image {
+                height: auto;
+            }
+
+            .btn-more-news {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .divider {
+            width: 100%;
+            border-top: 1px solid #ffffff;
+        }
+
+        .divider img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .highlighted-text {
+            color: #FFE03C;
+            font-weight: bold;
+        }
+
+        .update-logo {
+            margin-bottom: 10px; /* Tambahkan jarak antara logo dan teks */
+            text-align: left;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo"><img src="img/Group.png" alt="Logo"></div>
+            <div class="navbar-toggle" id="navbar-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul id="navbar-menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#tentang-program">Tentang Program</a></li>
+                <li><a href="#berita">Berita</a></li>
+                <li><a href="registrasi.html" class="btn-register">Registrasi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1><img src="img/Asset 1 1 (1).png" alt="Detik Travel"></h1>
+                <a href="#tentang-program" class="btn-program">Tentang Program</a>
+            </div>
+            <div class="small-images">
+                <img src="img/photo-1.png" alt="Small Image 1" onclick="changeBackground('img/Variant4.png')">
+                <img src="img/photo-2.png" alt="Small Image 2" onclick="changeBackground('img/Variant3.png')">
+                <img src="img/photo-3.png" alt="Small Image 3" onclick="changeBackground('img/Variant2.png')">
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Program Section -->
+    <section id="tentang-program">
+        <div class="program-section">
+            <div class="program-image">
+                <img src="img/about-image 1.png" alt="Travel Image">
+            </div>
+            <div class="program-content">
+                <h2>Tentang Program</h2>
+                <p>Bergabunglah dalam "Explore Thailand bersama Detiktravel"! Kompetisi ini terbuka bagi pembaca Detiktravel yang ingin menikmati perjalanan ke Thailand. Kunjungi destinasi menakjubkan seperti pantai Phak Bia Island dan destinasi lain di Phuket, Thailand. Jadi bagian dari perjalanan kami dan menangkan hadiah jalan-jalan yang tak terlupakan!</p>
+                <a href="registrasi.html" class="btn-daftar">Daftar Sekarang</a>
+                <div class="program-steps">
+                    <h3>Mekanisme</h3>
+                    <ul>
+                        <li>
+                            <span class="step-number">1</span>
+                            <div class="step-details">
+                                <h4>Isi Formulir</h4>
+                                <p class="highlighted-text">1 - 31 Mei 2023</p>
+                                <p>Lengkapi formulir pendaftaran dengan data sebenarnya</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-number">2</span>
+                            <div class="step-details">
+                                <h4>Penjurian</h4>
+                                <p class="highlighted-text">1 - 7 Juni 2023</p>
+                                <p>Ikuti rangkaian penjurian online/offline</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-number">3</span>
+                            <div class="step-details">
+                                <h4>Pengumuman Pemenang</h4>
+                                <p class="highlighted-text">11 Juni 2023</p>
+                                <p>Ikuti rangkaian pengumuman online/offline</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita Section -->
+<section id="berita">
+    <div class="logo-update">
+        <img src="img/Group.png" alt="Detik Travel" class="update-logo">
+        <h2>Update</h2>
+    </div>
+
+    <div class="update-section">
+        <div class="left-side">
+            <div class="main-news card">
+                <img src="img/doraemon.png" alt="Main News Image" class="news-image">
+                <div class="news-info">
+                    <h2>Warga Thailand Pakai Boneka Doraemon untuk Ritual Pemanggil Hujan</h2>
+                    <p>3 jam yang lalu</p>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="side-news card">
+                <div class="side-news-item">
+                    <img src="img/thumbnail-article-16_9.png" alt="Thailand">
+                    <div class="side-news-info">
+                        <h3>Thailand Ngarep Cuan Banyak dari Turis China dan Jepang</h3>
+                        <p>1 jam yang lalu</p>
+                    </div>
+                </div>
+                <div class="side-news-item">
+                    <img src="img/thumbnail-article-16_9 (1).png" alt="Wat Pra">
+                    <div class="side-news-info">
+                        <h3>Cahaya Lampu Hiasi Kuil Wat Phra Dhammakaya Thailand Saat Waisak</h3>
+                        <p>1 jam yang lalu</p>
+                    </div>
+                </div>
+                <div class="side-news-item">
+                    <img src="img/thumbnail-article-16_9 (2).png" alt="Lisa BLACKPINK">
+                    <div class="side-news-info">
+                        <h3>Cantiknya Lisa BLACKPINK Berwisata Sejarah di Thailand</h3>
+                        <p>1 jam yang lalu</p>
+                    </div>
+                </div>
+                <button class="btn-more-news">Lihat Berita Lainnya →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Enlarged Image -->
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p><img src="img/Asset 1 1.png" alt="Update Image 3"></p>
+        <p>Bergabunglah dalam "Explore Thailand bersama Detiktravel"! Kompetisi ini terbuka bagi pembaca Detiktravel yang ingin menikmati perjalanan ke Thailand. Kunjungi destinasi menakjubkan seperti pantai Pak Bia Island dan destinasi lain di Phuket, Thailand. Jadi bagian dari perjalanan kami dan menangkan hadiah jalan-jalan yang tak terlupakan!</p>
+        <div>
+            <p>Connect With Us</p>
+            <div class="social-icons">
+                <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="img/image 31.png" alt="Twitter"></a>
+                <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="img/linkedin.png" alt="LinkedIn"></a>
+                <a href="#"><img src="img/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+        <hr class="footer-line">
+        <div class="footer-bottom">
+            <p>Copyright @ 2023 detikcom. All right reserved</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Section -->
+    <script>
+        function changeBackground(imageUrl) {
+            document.getElementById('hero').style.backgroundImage = `url(${imageUrl})`;
+        }
+
+        // Get the modal
+        var modal = document.getElementById("modal");
+
+        // Get the image and insert it inside the modal
+        var images = document.getElementsByClassName("news-image");
+        var modalImg = document.getElementById("modal-img");
+
+        for (var i = 0; i < images.length; i++) {
+            images[i].onclick = function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        }
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Burger Menu Toggle
+        const navbarToggle = document.getElementById('navbar-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        navbarToggle.addEventListener('click', function () {
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
